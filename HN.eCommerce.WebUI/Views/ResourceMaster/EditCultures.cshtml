@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Edit Current Cultures";
+    ViewBag.Name = "EditCurrentCultures";
+}
+@section scripts{
+    <script src="~/Binding/Models/CurrentCultureModel.js"></script>
+    <script src="~/Binding/ViewModels/CurrentCultureViewModel.js"></script>
+}
+@section footerScript
+{
+     angular.bootstrap(document.getElementById("editCulture"),['editCulture']);
+}
+<br/>
+
+<div data-ng-app="editCulture" id="editCulture" data-ng-controller="CurrentCultureViewModel">
+    <div ng-view></div>
+</div>

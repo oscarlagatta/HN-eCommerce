@@ -1,0 +1,26 @@
+﻿
+<div class="modal-header">
+    <h1>Update Resource</h1>
+</div>
+
+<div class="modal-body">
+    <form class="form-horizontal" role="form">
+        <div ng-show="init && cultureKeys.length > 0">
+            <fieldset ng-repeat="cultureKey in cultureKeys">
+                <legend>Resource Information</legend>
+                <label class="col-sm-3 control-label">{{ cultureKey.Name }}</label>
+                <div class="col-sm-9">
+                    <input type="text" id="Name" name="Name" class="form-control"
+                           ng-model="cultureKey.Name" />
+                </div>
+                <br />
+            </fieldset>
+        </div>
+    </form>
+</div>
+<div class="col-sm-offset-3 col-sm-9">
+        <input type="button" class="btn btn-default" value="Cancel"
+               ng-click="cancelForm()" />
+        <input type="submit" class="btn btn-primary" value="Submit"
+               ng-click="submitForm()" />
+    </div>
