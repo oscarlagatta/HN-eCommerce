@@ -52,6 +52,7 @@
     <Compile Include="Reservation.cs" />
     <Compile Include="ResourceMaster.cs" />
     <Compile Include="SalesOrder.cs" />
+    <Compile Include="Style.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
