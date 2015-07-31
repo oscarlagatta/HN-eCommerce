@@ -7,7 +7,7 @@ using HN.eCommerce.Data.Contracts;
 namespace HN.eCommerce.Data
 {
    
-    [Export(typeof(IProductRepository))]
+    [Export(typeof(IStyleRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class StyleRepository : DataRepositoryBase<Style>, IStyleRepository
     {

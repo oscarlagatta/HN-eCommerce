@@ -18,6 +18,9 @@ namespace HN.eCommerce.ServiceHost.Console
             System.Console.WriteLine("Starting up services");
             System.Console.WriteLine("");
 
+
+            SM.ServiceHost hostStyleManger = new SM.ServiceHost(typeof(StyleManager));
+
             SM.ServiceHost hostProductManger = new SM.ServiceHost(typeof(ProductManager));
 
             SM.ServiceHost hostResourceMasterManger = new SM.ServiceHost(typeof(ResourceMasterManager));
@@ -26,6 +29,7 @@ namespace HN.eCommerce.ServiceHost.Console
 
 
             /* More services to call  */
+            StartService(hostStyleManger, "StyleManger Host");
             StartService(hostProductManger, "ProductManager Host");
             StartService(hostResourceMasterManger, "ResourceMasterManager Host");
             StartService(hostCultureCountryCoderManger, "ResourceMasterManager Host");
@@ -43,6 +47,7 @@ namespace HN.eCommerce.ServiceHost.Console
             timer.Stop();
             System.Console.WriteLine("eCommerce Monitor stopped.");
 
+            StopService(hostStyleManger, "AccountManager Host");
             StopService(hostProductManger, "AccountManager Host");
             StopService(hostResourceMasterManger, "ResourceMasterManger Host");
             StopService(hostCultureCountryCoderManger, "ResourceMasterManger Host");

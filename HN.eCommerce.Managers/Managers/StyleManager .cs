@@ -77,23 +77,23 @@ namespace HN.eCommerce.Managers.Managers
         }
 
 
-        //[OperationBehavior(TransactionScopeRequired = true)]
-        //public Style UpdateStyleInfo(Style style)
-        //{
-        //    return ExecuteFaultHandledOperation(() =>
-        //    {
-        //        var styleRepository = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public Style UpdateStyleInfo(Style style)
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                var styleRepository = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
 
-        //        Style updatedStyle = null;
+                Style updatedStyle = null;
 
-        //        if (style.MerretStyleID == 0)
-        //            updatedStyle = styleRepository.Add(style);
-        //        else
-        //            updatedStyle = styleRepository.Update(style);
+                if (style.MerretStyleID == 0)
+                    updatedStyle = styleRepository.Add(style);
+                else
+                    updatedStyle = styleRepository.Update(style);
 
-        //        return updatedStyle;
-        //    });
-        //}
+                return updatedStyle;
+            });
+        }
 
 
         #endregion

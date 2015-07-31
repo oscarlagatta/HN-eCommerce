@@ -13,9 +13,9 @@ namespace HN.eCommerce.Contracts
         [FaultContract(typeof(AuthorizationValidationException))]
         Style GetStyleInfo(int MerretStyleID);
 
-        //[OperationContract]
-        //[FaultContract(typeof(AuthorizationValidationException))]
-        //[TransactionFlow(TransactionFlowOption.Allowed)]
-        //void UpdateStyleInfo(Style style);
+        [OperationContract]
+        [FaultContract(typeof(AuthorizationValidationException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        Style UpdateStyleInfo(Style style);
     }
 }
