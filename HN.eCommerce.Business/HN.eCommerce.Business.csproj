@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Business Engines\ProductEngine.cs" />
     <Compile Include="Business Engines\ResourceMasterEngine.cs" />
+    <Compile Include="Business Engines\StyleEngine.cs" />
     <Compile Include="BusinessEngineFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

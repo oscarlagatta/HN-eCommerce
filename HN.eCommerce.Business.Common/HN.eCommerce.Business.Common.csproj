@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IProductEngine.cs" />
     <Compile Include="IResourceMasterEngine.cs" />
+    <Compile Include="IStyleEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
