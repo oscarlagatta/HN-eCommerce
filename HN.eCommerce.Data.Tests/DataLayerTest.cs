@@ -30,6 +30,7 @@ namespace HN.eCommerce.Data.Tests
             Assert.IsTrue(products != null);
         }
 
+
         [TestMethod]
 
 
@@ -67,7 +68,20 @@ namespace HN.eCommerce.Data.Tests
 
             Assert.IsTrue(resources != null);
         }
-        
+
+        /// <summary>
+        /// Test the Styles repository
+        /// </summary>
+        [TestMethod]
+        public void test_repository_factory_Styles()
+        {
+            RepositoryFactoryTestClass factoryTest = new RepositoryFactoryTestClass();
+
+            IEnumerable<Style> styles = factoryTest.GetStyles();
+
+            Assert.IsTrue(styles != null);
+        }
+
         [TestMethod]
         public void test_repository_mocking()
         {
@@ -194,6 +208,15 @@ namespace HN.eCommerce.Data.Tests
             IEnumerable<CultureCountryCode> cultureCountryCodes = cultureCountryCodeRepository.Get();
 
             return cultureCountryCodes;
+        }
+
+        public IEnumerable<Style> GetStyles() {
+
+            IStyleRepository stylesRepository = _DataRepositoryFactory.GetDataRepository<IStyleRepository>();
+
+            IEnumerable<Style> styles = stylesRepository.Get();
+
+            return styles;
         }
 
 
