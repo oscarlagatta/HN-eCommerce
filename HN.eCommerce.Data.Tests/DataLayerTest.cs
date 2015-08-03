@@ -210,10 +210,10 @@ namespace HN.eCommerce.Data.Tests
             return cultureCountryCodes;
         }
 
-        public IEnumerable<Style> GetStyles() {
-
+        public IEnumerable<Style> GetStyles()
+        {
             IStyleRepository stylesRepository = _DataRepositoryFactory.GetDataRepository<IStyleRepository>();
-
+            
             IEnumerable<Style> styles = stylesRepository.Get();
 
             return styles;

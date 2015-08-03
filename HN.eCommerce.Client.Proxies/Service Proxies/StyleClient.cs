@@ -13,12 +13,12 @@ namespace HN.eCommerce.Client.Proxies
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class StyleClient : UserClientBase<IStyleService>, IStyleService
     {
-        public Entities.Product GetStyle(int merretStyleID)
+        public Entities.Style GetStyle(int merretStyleID)
         {
             return Channel.GetStyle(merretStyleID);
         }
 
-        public Entities.Product[] GetAllStyles()
+        public Entities.Style[] GetAllStyles()
         {
             return Channel.GetAllStyles();
         }

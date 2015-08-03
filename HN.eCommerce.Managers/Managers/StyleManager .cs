@@ -8,6 +8,7 @@ using HN.eCommerce.Contracts;
 using HN.eCommerce.Data.Contracts;
 using Core.Common.Contracts;
 using Core.Common.Exceptions;
+using System;
 
 namespace HN.eCommerce.Managers.Managers
 {
@@ -78,6 +79,7 @@ namespace HN.eCommerce.Managers.Managers
 
 
         [OperationBehavior(TransactionScopeRequired = true)]
+
         public Style UpdateStyleInfo(Style style)
         {
             return ExecuteFaultHandledOperation(() =>
@@ -95,8 +97,24 @@ namespace HN.eCommerce.Managers.Managers
             });
         }
 
+        public Style GetStyle(int merretStyleID)
+        {
+            throw new NotImplementedException();
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public Style UpdateStyle(Style style)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteStyle(int merretStyleID)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
-      
+
     }
 }

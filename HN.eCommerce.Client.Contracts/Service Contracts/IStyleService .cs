@@ -12,12 +12,12 @@ namespace HN.eCommerce.Client.Contracts
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        Product GetStyle(int merretStyleID);
+        Style GetStyle(int merretStyleID);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        Product[] GetAllStyles();
+        Style[] GetAllStyles();
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]

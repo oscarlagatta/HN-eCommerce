@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -145,6 +146,7 @@
     <Compile Include="Controllers\MVC\AccountController.cs" />
     <Compile Include="Controllers\MVC\CustomerController.cs" />
     <Compile Include="Controllers\MVC\ResourceMasterController.cs" />
+    <Compile Include="Controllers\MVC\StyleController.cs" />
     <Compile Include="Core\ApiControllerBase.cs" />
     <Compile Include="Core\ISecurityAdapter.cs" />
     <Compile Include="Core\IServiceAwareController.cs" />
@@ -1029,6 +1031,7 @@
     <Content Include="Views\ResourceMaster\Create.cshtml" />
     <Content Include="Views\ResourceMaster\Edit.cshtml" />
     <Content Include="Views\ResourceMaster\EditCultures.cshtml" />
+    <Content Include="Views\Style\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
