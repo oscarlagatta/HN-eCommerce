@@ -42,12 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business Engines\ProductEngine.cs" />
-    <Compile Include="Business Engines\ResourceMasterEngine.cs" />
     <Compile Include="Business Engines\StyleEngine.cs" />
     <Compile Include="BusinessEngineFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HN.eCommerce.Business.Common\HN.eCommerce.Business.Common.csproj">
       <Project>{A5048BDB-DBEC-499E-8BD8-31A84B31B598}</Project>

@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProductEngine.cs" />
-    <Compile Include="IResourceMasterEngine.cs" />
     <Compile Include="IStyleEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +57,9 @@
       <Project>{4CFB08A6-BD3F-42AB-BDA3-A1A2647B3DB3}</Project>
       <Name>Core.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

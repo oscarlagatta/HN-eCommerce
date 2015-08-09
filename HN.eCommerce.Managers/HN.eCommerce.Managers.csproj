@@ -44,10 +44,8 @@
   <ItemGroup>
     <Compile Include="Managers\AccountManager.cs" />
     <Compile Include="ManagerBase.cs" />
-    <Compile Include="Managers\CultureCountryCodeManager.cs" />
     <Compile Include="Managers\StyleManager .cs" />
     <Compile Include="Managers\ProductManager.cs" />
-    <Compile Include="Managers\ResourceMasterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCartManager.cs" />
   </ItemGroup>
@@ -92,6 +90,9 @@
       <Project>{4CFB08A6-BD3F-42AB-BDA3-A1A2647B3DB3}</Project>
       <Name>Core.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,7 @@ using HN.eCommerce.Contracts;
 using HN.eCommerce.Data.Contracts;
 using Core.Common.Contracts;
 using Core.Common.Exceptions;
+using System;
 
 namespace HN.eCommerce.Managers.Managers
 {
@@ -19,66 +20,52 @@ namespace HN.eCommerce.Managers.Managers
         [Import]
         private IDataRepositoryFactory _dataRepositoryFactory;
 
-        [Import]
-        IBusinessEngineFactory _businessEngineFactory;
 
         public StyleManager()
         {
 
         }
-
         
         public StyleManager(IDataRepositoryFactory dataRepositoryFactory)
         {
             _dataRepositoryFactory = dataRepositoryFactory;
         }
 
-        public StyleManager(IDataRepositoryFactory dataRepositoryFactory, IBusinessEngineFactory businessEngineFactory)
+        public Style GetStyle(int MerretStleID)
         {
-            _dataRepositoryFactory = dataRepositoryFactory;
-            _businessEngineFactory = businessEngineFactory;
+            return ExecuteFaultHandledOperation(() =>
+            {
+                IStyleRepository styleRepository = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
+
+                Style resourceMasterEntity = styleRepository.Get().Where(r => r.MerretStyleID == MerretStleID).FirstOrDefault();
+
+                if (resourceMasterEntity == null)
+                {
+                    NotFoundException ex
+                        = new NotFoundException(string.Format("Style ID {0} is not in the database. ", MerretStleID));
+
+                    throw new FaultException<NotFoundException>(ex, ex.Message);
+                }
+
+                return resourceMasterEntity;
+            });
         }
-
-
-        #region IStyleSservice implementations
-
 
         public Style[] GetAllStyles()
         {
             return ExecuteFaultHandledOperation(() =>
             {
-                var accountRepository
+                var styleRepository
                     = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
 
-                IEnumerable<Style> styles = accountRepository.Get();
-
+                IEnumerable<Style> styles = styleRepository.Get();
+                styles = styles.Take(5);
                 return styles.ToArray();
             });
         }
 
-        public Style GetStyleInfo(int MerretStyleID)
-        {
-            return ExecuteFaultHandledOperation(() =>
-            {
-                var productRepositoryFactory = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
-
-                Style styleEntity = productRepositoryFactory.Get(MerretStyleID);
-
-                if (styleEntity == null)
-                {
-                    NotFoundException ex
-                        = new NotFoundException(string.Format("Style with Id {0} is not in the database. ", MerretStyleID));
-
-                    throw new FaultException<NotFoundException>(ex, ex.Message);
-                }
-
-                return styleEntity;
-            });
-        }
-
-
         [OperationBehavior(TransactionScopeRequired = true)]
-        public Style UpdateStyleInfo(Style style)
+        public Style UpdateStyle(Style style)
         {
             return ExecuteFaultHandledOperation(() =>
             {
@@ -86,7 +73,7 @@ namespace HN.eCommerce.Managers.Managers
 
                 Style updatedStyle = null;
 
-                if (style.MerretStyleID == 0)
+                if (updatedStyle.MerretStyleID == 0)
                     updatedStyle = styleRepository.Add(style);
                 else
                     updatedStyle = styleRepository.Update(style);
@@ -95,8 +82,24 @@ namespace HN.eCommerce.Managers.Managers
             });
         }
 
+        public void DeleteStyle(int MerretStleID)
+        {
+            ExecuteFaultHandledOperation(() =>
+            {
+                var styleRepository = _dataRepositoryFactory.GetDataRepository<IStyleRepository>();
 
-        #endregion
-      
+                var styleEntity = styleRepository.Get(MerretStleID);
+
+                if (styleEntity == null)
+                {
+                    NotFoundException ex
+                        = new NotFoundException(string.Format("Resource Master with Id {0} is not in the database. ", MerretStleID));
+
+                    throw new FaultException<NotFoundException>(ex, ex.Message);
+                }
+
+                styleRepository.Remove(MerretStleID);
+            });
+        }
     }
 }

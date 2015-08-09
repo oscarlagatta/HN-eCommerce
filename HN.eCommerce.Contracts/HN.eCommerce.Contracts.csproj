@@ -45,12 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service Contracts\IStyleService.cs" />
     <Compile Include="Service Contracts\IAccountService.cs" />
-    <Compile Include="Service Contracts\ICultureCountryCodeService.cs" />
     <Compile Include="Service Contracts\IProductService.cs" />
-    <Compile Include="Service Contracts\IResourceMasterService.cs" />
     <Compile Include="Service Contracts\IShoppingCartService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HN.eCommerce.Business.Entities\HN.eCommerce.Business.Entities.csproj">
       <Project>{A768587A-09E7-4104-B7DF-23E9BE0C87BC}</Project>

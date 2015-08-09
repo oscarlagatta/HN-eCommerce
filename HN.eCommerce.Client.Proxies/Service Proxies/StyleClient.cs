@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Common.ServiceModel;
 using HN.eCommerce.Client.Contracts;
+using HN.eCommerce.Client.Entities;
 
 namespace HN.eCommerce.Client.Proxies
 {
@@ -13,44 +14,26 @@ namespace HN.eCommerce.Client.Proxies
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class StyleClient : UserClientBase<IStyleService>, IStyleService
     {
-        public Entities.Product GetStyle(int merretStyleID)
+        public Style GetStyle(int merretStyleID)
         {
             return Channel.GetStyle(merretStyleID);
         }
 
-        public Entities.Product[] GetAllStyles()
+        public Style[] GetAllStyles()
         {
-            return Channel.GetAllStyles();
+            var styles = Channel.GetAllStyles();
+
+            return styles;
         }
 
-        public Entities.Style UpdateStyle(Entities.Style style)
+        public Style UpdateStyle(Style style)
         {
             return Channel.UpdateStyle(style);
         }
 
-        public void DeleteStyle(int merretStyleID)
+        public void DeleteStyle(int MerretStleID)
         {
-            Channel.DeleteStyle(merretStyleID);
-        }
-
-        public Task<Entities.Style> GetStyleAsync(int merretStyleID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Entities.Style[]> GetAllStlesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Entities.Style> UpdateStlesAsync(Entities.Style style)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteStyleAsync(int merretStyleID)
-        {
-            throw new NotImplementedException();
+            Channel.DeleteStyle(MerretStleID);
         }
     }
 }

@@ -16,8 +16,6 @@ namespace HN.eCommerce.Data
         }
 
         public DbSet<Product> ProductSet { get; set; }
-        public DbSet<ResourceMaster> ResourceMasterSet { get; set; }
-        public DbSet<CultureCountryCode> CultureCountryCodeSet { get; set; }
         public DbSet<Account> AccountSet { get; set; }
         public DbSet<Style> StyleSet { get; set; }
 
@@ -31,8 +29,6 @@ namespace HN.eCommerce.Data
 
             modelBuilder.Entity<Style>().HasKey<int>(e => e.MerretStyleID).Ignore(e => e.EntityId);
             modelBuilder.Entity<Product>().HasKey<int>(e => e.AccountId).Ignore(e => e.EntityId);
-            modelBuilder.Entity<ResourceMaster>().HasKey<int>(e => e.ResourceId).Ignore(e => e.EntityId);
-            modelBuilder.Entity<CultureCountryCode>().HasKey<int>(e => e.Id).Ignore(e => e.EntityId);
             modelBuilder.Entity<Account>().HasKey<int>(e => e.AccountId).Ignore(e => e.EntityId);
         }
     }

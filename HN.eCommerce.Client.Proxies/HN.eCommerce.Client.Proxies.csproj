@@ -42,10 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service Proxies\CultureCountryCodeClient.cs" />
     <Compile Include="Service Proxies\ProductClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service Proxies\ResourceMasterClient.cs" />
     <Compile Include="Service Proxies\StyleClient.cs" />
     <Compile Include="ServiceFactory.cs" />
   </ItemGroup>

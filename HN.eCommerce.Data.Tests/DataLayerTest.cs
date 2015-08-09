@@ -41,32 +41,6 @@ namespace HN.eCommerce.Data.Tests
 
             Assert.IsTrue(products != null);
         }
-
-        [TestMethod]
-        public void test_repository_factory_countryCultureCodes()
-        {
-            RepositoryFactoryTestClass factoryTest = new RepositoryFactoryTestClass();
-
-            IEnumerable<CultureCountryCode> cultureCountryCodes = factoryTest.GetCultureCountryCodes();
-
-            var countries = cultureCountryCodes.Select(e => e.Country).Distinct().ToList();
-
-            var cultures = cultureCountryCodes.Select(e => e.CultureInfoCode).Distinct().ToList();
-
-            Assert.IsTrue(cultureCountryCodes != null);
-        }
-
-
-
-        [TestMethod]
-        public void test_repository_factory_Resources()
-        {
-            RepositoryFactoryTestClass factoryTest = new RepositoryFactoryTestClass();
-
-            IEnumerable<ResourceMaster> resources = factoryTest.GetResources();
-
-            Assert.IsTrue(resources != null);
-        }
         
         [TestMethod]
         public void test_repository_mocking()
@@ -177,25 +151,5 @@ namespace HN.eCommerce.Data.Tests
             return products;
         }
 
-        public IEnumerable<ResourceMaster> GetResources()
-        {
-            IResourceMasterRepository resourcesRepository = _DataRepositoryFactory.GetDataRepository<IResourceMasterRepository>();
-
-            IEnumerable<ResourceMaster> resources = resourcesRepository.Get();
-
-            return resources;
-        }
-
-
-        public IEnumerable<CultureCountryCode> GetCultureCountryCodes()
-        {
-            ICultureCountryCodeRepository cultureCountryCodeRepository = _DataRepositoryFactory.GetDataRepository<ICultureCountryCodeRepository>();
-
-            IEnumerable<CultureCountryCode> cultureCountryCodes = cultureCountryCodeRepository.Get();
-
-            return cultureCountryCodes;
-        }
-
-
-    }
+     }
 }

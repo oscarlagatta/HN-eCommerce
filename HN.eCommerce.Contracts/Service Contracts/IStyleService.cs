@@ -10,12 +10,23 @@ namespace HN.eCommerce.Contracts
     {
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        [FaultContract(typeof(AuthorizationValidationException))]
-        Style GetStyleInfo(int MerretStyleID);
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        Style GetStyle(int MerretStleID);
 
         [OperationContract]
-        [FaultContract(typeof(AuthorizationValidationException))]
+        [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        Style UpdateStyleInfo(Style style);
+        Style[] GetAllStyles();
+
+        [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        Style UpdateStyle(Style style);
+
+        [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        void DeleteStyle(int MerretStleID);
+       
     }
 }

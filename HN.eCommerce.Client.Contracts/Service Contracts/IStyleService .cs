@@ -12,12 +12,12 @@ namespace HN.eCommerce.Client.Contracts
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        Product GetStyle(int merretStyleID);
+        Style GetStyle(int merretStyleID);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        Product[] GetAllStyles();
+        Style[] GetAllStyles();
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
@@ -27,23 +27,6 @@ namespace HN.eCommerce.Client.Contracts
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        void DeleteStyle(int merretStyleID);
-
-
-        #region Async Operations
-
-        [OperationContract]
-        Task<Style> GetStyleAsync(int merretStyleID);
-
-        [OperationContract]
-        Task<Style[]> GetAllStlesAsync();
-
-        [OperationContract]
-        Task<Style> UpdateStlesAsync(Style style);
-
-        [OperationContract]
-        Task DeleteStyleAsync(int merretStyleID);
-
-        #endregion
+        void DeleteStyle(int MerretStleID);
     }
 }

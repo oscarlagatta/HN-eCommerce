@@ -22,19 +22,6 @@ namespace HN.eCommerce.ServiceHost.Tests
 
             channelFactory.Close();
         }
-
-        [TestMethod]
-        public void test_resourceMaster_manager_as_service()
-        {
-
-            ChannelFactory<IResourceMasterService> channelFactory =
-                new ChannelFactory<IResourceMasterService>("");
-
-            IResourceMasterService proxy = channelFactory.CreateChannel();
-
-            (proxy as ICommunicationObject).Open();
-
-            channelFactory.Close();
-        }
+        
     }
 }

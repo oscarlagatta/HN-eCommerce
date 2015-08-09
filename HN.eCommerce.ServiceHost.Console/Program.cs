@@ -23,17 +23,12 @@ namespace HN.eCommerce.ServiceHost.Console
 
             SM.ServiceHost hostProductManger = new SM.ServiceHost(typeof(ProductManager));
 
-            SM.ServiceHost hostResourceMasterManger = new SM.ServiceHost(typeof(ResourceMasterManager));
-
-            SM.ServiceHost hostCultureCountryCoderManger = new SM.ServiceHost(typeof(CultureCountryCodeManager));
-
+          
 
             /* More services to call  */
             StartService(hostStyleManger, "StyleManger Host");
             StartService(hostProductManger, "ProductManager Host");
-            StartService(hostResourceMasterManger, "ResourceMasterManager Host");
-            StartService(hostCultureCountryCoderManger, "ResourceMasterManager Host");
-
+         
             System.Timers.Timer timer = new System.Timers.Timer(10000);
             timer.Elapsed += OnTimerElapsed;
             timer.Start();
@@ -49,8 +44,7 @@ namespace HN.eCommerce.ServiceHost.Console
 
             StopService(hostStyleManger, "AccountManager Host");
             StopService(hostProductManger, "AccountManager Host");
-            StopService(hostResourceMasterManger, "ResourceMasterManger Host");
-            StopService(hostCultureCountryCoderManger, "ResourceMasterManger Host");
+        
 
         }
 

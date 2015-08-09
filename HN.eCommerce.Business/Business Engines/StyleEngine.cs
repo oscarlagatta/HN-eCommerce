@@ -13,14 +13,7 @@ namespace HN.eCommerce.Business.Business_Engines
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class StyleEngine : IStyleEngine
     {
-        [ImportingConstructor]
-        public StyleEngine(IDataRepositoryFactory dataRepositoryFactory)
-        {
-            _dataRepositoryFactory = dataRepositoryFactory;
-        }
-
-         IDataRepositoryFactory _dataRepositoryFactory;
-
+       
 
     }
 }
