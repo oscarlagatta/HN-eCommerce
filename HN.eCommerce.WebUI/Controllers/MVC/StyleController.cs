@@ -30,6 +30,8 @@ namespace HN.eCommerce.WebUI.Controllers.MVC
         {
             try
             {
+                var style = _StyleService.GetStyle(10735);
+
                 Style[] styles = _StyleService.GetAllStyles();
 
                 var styleModel = styles.Select(description => new StyleModel()
